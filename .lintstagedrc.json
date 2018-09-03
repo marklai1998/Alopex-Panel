@@ -1,0 +1,20 @@
+{
+  "linters": {
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.js": [
+      "import-sort --write",
+      "flow focus-check",
+      "jest --bail --findRelatedTests",
+      "git add"
+    ],
+    "*.json": [
+      "git add"
+    ]
+  },
+  "ignore": [
+    "flow-typed/**"
+  ]
+}

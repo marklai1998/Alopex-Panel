@@ -1,0 +1,52 @@
+.sider {
+  background-color: #3e6680;
+  width: 160px;
+  flex-shrink: 0;
+  transition: width 0.3s;
+}
+
+.sider.collapsed {
+  width: 50px;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.nav li {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #fff;
+  overflow: hidden;
+}
+
+.nav li:hover {
+  background: #395d75;
+}
+
+.nav li:focus {
+  outline: none;
+}
+
+.nav li i {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.nav li span {
+  position: absolute;
+  line-height: 50px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.nav.collapsed li span {
+  opacity: 0;
+}

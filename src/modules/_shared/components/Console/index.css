@@ -1,0 +1,12 @@
+.console {
+  height: 100%;
+  width: 300px;
+  background-color: #fff;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.console.collapsed {
+  width: 0;
+}
