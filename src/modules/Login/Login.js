@@ -6,9 +6,11 @@ import { Background } from './Background'
 import styles from './index.css'
 
 const Login = () => (
-  <div className={styles.container}>
-    <Background />
-  </div>
+  <Background>
+    <div className={styles.container}>
+      <div className={styles.loginBox}>test</div>
+    </div>
+  </Background>
 )
 
 export default Login

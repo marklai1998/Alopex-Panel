@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react'
+import * as React from 'react'
 import SnowStorm from 'react-snowstorm'
 
 import alopex from './alopex.svg'
@@ -8,10 +8,17 @@ import styles from './index.css'
 import land from './land.svg'
 import mountains from './mountains.svg'
 
-export const Background = () => (
+type Props = {
+  children: React.Node
+}
+
+export const Background = (props: Props) => (
   <div className={styles.container}>
+    <div className={styles.content}>{props.children}</div>
     <SnowStorm freezeOnBlur={false} targetElement='snow' />
-    <div id='snow' className={styles.snow} />
+    <div id='snow' className={styles.snow}>
+      <span>Alopex</span>
+    </div>
     <div className={styles.top}>
       <img src={mountains} className={styles.mountains} />
       <img src={land} className={styles.land} />

@@ -1,5 +1,15 @@
 .container {
-  background-color: #fff;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.loginBox {
+  background: rgba(255, 255, 255, 0.5);
+  width: 500px;
+  height: 300px;
+  margin-left: 20px;
 }
