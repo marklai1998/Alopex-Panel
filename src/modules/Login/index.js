@@ -1,3 +1,3 @@
 // @flow strict
 
-export { Login } from './Login'
+export { default as Login } from './Login'

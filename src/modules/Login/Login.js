@@ -2,6 +2,13 @@
 
 import React from 'react'
 
+import { Background } from './Background'
 import styles from './index.css'
 
-export const Login = () => <div style={styles.test}>test</div>
+const Login = () => (
+  <div className={styles.container}>
+    <Background />
+  </div>
+)
+
+export default Login
