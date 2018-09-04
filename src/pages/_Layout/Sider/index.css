@@ -3,6 +3,7 @@
   width: 160px;
   flex-shrink: 0;
   transition: width 0.3s;
+  box-shadow: 0 0 15px #aaaaaa50;
 }
 
 .sider.collapsed {

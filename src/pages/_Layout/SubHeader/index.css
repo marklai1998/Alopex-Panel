@@ -6,11 +6,19 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
+  z-index: 1;
 }
 
 .title {
   width: 100%;
   padding-left: 85px;
+}
+
+.shadow {
+  box-shadow: 0 0 15px #aaaaaa50;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .toggleNavButton {
@@ -22,6 +30,7 @@
   font-size: 16px;
   color: #fff;
   flex-shrink: 0;
+  transition: all 0.3s;
 }
 
 .toggleNavButton:hover {
@@ -49,6 +58,7 @@
   font-size: 16px;
   color: #fff;
   flex-shrink: 0;
+  transition: all 0.3s;
 }
 
 .toggleConsoleButton:hover {

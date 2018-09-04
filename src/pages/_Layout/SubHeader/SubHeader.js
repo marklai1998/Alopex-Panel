@@ -52,14 +52,16 @@ class SubHeader extends PureComponent<Props> {
         >
           <i className='fas fa-angle-double-left' />
         </button>
-        <div className={styles.title}>Dashboard</div>
-        <button
-          type='button'
-          className={styles.toggleConsoleButton}
-          onClick={this.toggleConsoleCollapse}
-        >
-          <i className='fas fa-terminal' />
-        </button>
+        <div className={styles.shadow}>
+          <div className={styles.title}>Dashboard</div>
+          <button
+            type='button'
+            className={styles.toggleConsoleButton}
+            onClick={this.toggleConsoleCollapse}
+          >
+            <i className='fas fa-terminal' />
+          </button>
+        </div>
       </div>
     )
   }
