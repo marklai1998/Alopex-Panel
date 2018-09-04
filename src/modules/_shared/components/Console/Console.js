@@ -1,30 +1,36 @@
-// flow strict
+// @flow strict
 
 import classNames from 'classnames'
-import React, { PureComponent } from 'react'
+import * as R from 'ramda'
+import React from 'react'
 import { connect } from 'react-redux'
+import { connectScreenSize } from 'react-screen-size'
 
 import { isConsoleCollapsedSelector } from '../../../../redux/ui/selectors'
 import styles from './index.css'
 
-type Props = { isConsoleCollapsed: boolean }
+type Props = { isConsoleCollapsed: boolean, isMobile: boolean }
 
-class Console extends PureComponent<Props> {
-  render () {
-    return (
-      <div
-        className={classNames(styles.console, {
-          [styles.collapsed]: this.props.isConsoleCollapsed
-        })}
-      >
-        test
-      </div>
-    )
-  }
-}
+const Console = (props: Props) => (
+  <div
+    className={classNames(styles.console, {
+      [styles.collapsed]: props.isConsoleCollapsed,
+      [styles.mobile]: props.isMobile
+    })}
+  >
+    test
+  </div>
+)
 
 const mapStateToProps = state => ({
   isConsoleCollapsed: isConsoleCollapsedSelector(state)
 })
 
-export default connect(mapStateToProps)(Console)
+const mapScreenSizeToProps = ({ xs }) => ({
+  isMobile: xs
+})
+
+export default R.compose(
+  connect(mapStateToProps),
+  connectScreenSize(mapScreenSizeToProps)
+)(Console)

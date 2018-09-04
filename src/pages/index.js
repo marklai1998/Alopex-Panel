@@ -1,21 +1,17 @@
 // @flow strict
 
 import React from 'react'
-import { Helmet } from 'react-helmet'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
-import icon from '../favicon.ico'
 import { Dashboard } from '../modules/Dashboard'
+import { Login } from '../modules/Login'
 import { Layout } from './_Layout'
 
 export const App = () => (
-  <React.Fragment>
-    <Helmet>
-      <link rel='shortcut icon' href={icon} />
-    </Helmet><BrowserRouter>
-      <Layout>
-        <Route path='/' component={Dashboard} />
-      </Layout>
-    </BrowserRouter>
-  </React.Fragment>
+  <Switch>
+    <Route exact path='/login' component={Login} />
+    <Layout>
+      <Route exact path='/' component={Dashboard} />
+    </Layout>
+  </Switch>
 )

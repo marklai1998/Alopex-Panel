@@ -1,4 +1,4 @@
-//flow strict
+// @flow strict
 
 import classNames from 'classnames'
 import React from 'react'
@@ -7,7 +7,7 @@ import styles from './index.css'
 
 type Props = {
   size: number,
-  className: string,
+  className: string
 }
 
 export const Avatar = (props: Props) => (

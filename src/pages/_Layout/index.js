@@ -1,6 +1,6 @@
-// flow strict
+// @flow strict
 
-import React from 'react'
+import * as React from 'react'
 
 import { Console } from '../../modules/_shared/components/Console'
 import { Header } from './Header'
@@ -8,7 +8,11 @@ import styles from './index.css'
 import { Sider } from './Sider'
 import { SubHeader } from './SubHeader'
 
-export const Layout = props => (
+type Props = {
+  children: React.Node
+}
+
+export const Layout = (props: Props) => (
   <div className={styles.mainFrame}>
     <Header />
     <SubHeader />

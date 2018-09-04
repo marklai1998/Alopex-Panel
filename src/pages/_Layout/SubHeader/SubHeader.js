@@ -1,8 +1,10 @@
-// flow strict
+// @flow strict
 
 import classnames from 'classnames'
+import * as R from 'ramda'
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { connectScreenSize } from 'react-screen-size'
 
 import { uiCreators } from '../../../redux'
 import {
@@ -14,35 +16,47 @@ import styles from './index.css'
 type Props = {
   isSiderCollapsed: boolean,
   isConsoleCollapsed: boolean,
+  isMobile: boolean,
   setSiderCollapsed: boolean => void,
-  setConsoleCollapse: boolean => void,
+  setConsoleCollapsed: boolean => void
 }
 
 class SubHeader extends PureComponent<Props> {
-  setSiderCollapse = () => {
-    console.log(this.props.isSiderCollapsed)
-    this.props.setSiderCollapsed(!this.props.isSiderCollapsed)
+  setSiderCollapse = (collapse: boolean) => {
+    if (this.props.isMobile && !collapse) this.props.setConsoleCollapsed(true)
+    this.props.setSiderCollapsed(collapse)
   }
 
-  setConsoleCollapse = () => {
-    this.props.setConsoleCollapse(!this.props.isConsoleCollapsed)
+  setConsoleCollapsed = (collapse: boolean) => {
+    if (this.props.isMobile && !collapse) this.props.setSiderCollapsed(true)
+    this.props.setConsoleCollapsed(collapse)
+  }
+
+  toggleSiderCollapse = () => {
+    this.setSiderCollapse(!this.props.isSiderCollapsed)
+  }
+
+  toggleConsoleCollapse = () => {
+    this.setConsoleCollapsed(!this.props.isConsoleCollapsed)
   }
 
   render () {
     return (
       <div className={styles.subHeader}>
         <button
-          class={classnames(styles.toggleNavButton, {
+          type='button'
+          className={classnames(styles.toggleNavButton, {
             [styles.collapsed]: this.props.isSiderCollapsed
           })}
-          onClick={this.setSiderCollapse}
+          onClick={this.toggleSiderCollapse}
         >
           <i className='fas fa-angle-double-left' />
         </button>
         <div className={styles.title}>Dashboard</div>
         <button
-          class={styles.toggleConsoleButton}
-          onClick={this.setConsoleCollapse}
+          type='button'
+          className={styles.toggleConsoleButton}
+          onClick={this.toggleConsoleCollapse}
         >
           <i className='fas fa-terminal' />
         </button>
@@ -58,7 +72,17 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   setSiderCollapsed: uiCreators.setSiderCollapsed,
-  setConsoleCollapse: uiCreators.setConsoleCollapsed
+  setConsoleCollapsed: uiCreators.setConsoleCollapsed
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubHeader)
+const mapScreenSizeToProps = ({ xs }) => ({
+  isMobile: xs
+})
+
+export default R.compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  connectScreenSize(mapScreenSizeToProps)
+)(SubHeader)

@@ -1,11 +1,9 @@
-// flow strict
+// @flow strict
 
-import React, { PureComponent } from 'react'
+import React from 'react'
 
 import { Box } from '../_shared/components/Box'
 
-export class Dashboard extends PureComponent {
-  render () {
-    return <Box>test</Box>
-  }
+export const Dashboard = () => {
+  return <Box>test</Box>
 }

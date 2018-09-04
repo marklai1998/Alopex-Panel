@@ -1,3 +1,5 @@
+// @flow
+
 const path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -6,12 +8,14 @@ module.exports = {
   mode: 'production',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   node: {
     fs: 'empty'
   },
   devServer: {
+    historyApiFallback: true,
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000
@@ -36,11 +40,7 @@ module.exports = {
               'babel-plugin-ramda',
               '@babel/plugin-transform-runtime'
             ],
-            presets: [
-              '@babel/preset-react',
-              '@babel/preset-flow',
-              '@babel/env'
-            ]
+            presets: ['@babel/preset-react', '@babel/preset-flow', '@babel/env']
           }
         }
       },
