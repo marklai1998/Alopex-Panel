@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { MediaProvider } from 'react-screen-size'
 
-import createStore from './modules/_shared/utils/createStore'
+import { createStore } from './modules/_shared/utils/createStore'
 import { App } from './pages'
 import { rootReducer } from './redux'
 

@@ -15,7 +15,11 @@ type Props = {
 export const Background = (props: Props) => (
   <div className={styles.container}>
     <div className={styles.content}>{props.children}</div>
-    <SnowStorm freezeOnBlur={false} targetElement='snow' />
+    <SnowStorm
+      freezeOnBlur={false}
+      targetElement='snow'
+      excludeMobile={false}
+    />
     <div id='snow' className={styles.snow}>
       <span>Alopex</span>
     </div>

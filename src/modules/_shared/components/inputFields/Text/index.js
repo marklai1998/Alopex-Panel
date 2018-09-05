@@ -26,6 +26,4 @@ export const Text = (props: Props) => {
   )
 }
 
-Text.defaultProps = {
-  type: 'text'
-}
+Text.defaultProps = { type: 'text' }

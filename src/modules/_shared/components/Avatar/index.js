@@ -10,9 +10,11 @@ type Props = {
   className: string
 }
 
-export const Avatar = (props: Props) => (
+const Avatar = (props: Props) => (
   <div
     className={classNames(props.className, styles.avatar)}
     style={{ width: props.size + 'px', height: props.size + 'px' }}
   />
 )
+
+export default Avatar
