@@ -1,10 +1,10 @@
 // @flow strict
 
+import icon from 'assets/logo.svg'
 import React from 'react'
 
 import { Avatar } from '../../../modules/_shared/components/Avatar'
 import styles from './index.css'
-import icon from './logo.svg'
 
 export const Header = () => (
   <div className={styles.header}>

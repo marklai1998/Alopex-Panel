@@ -2,6 +2,7 @@
 
 import './style.css'
 
+import favicon from 'assets/favicon.ico'
 import React from 'react'
 import { render } from 'react-dom'
 import { Helmet } from 'react-helmet'
@@ -9,7 +10,6 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { MediaProvider } from 'react-screen-size'
 
-import icon from './favicon.ico'
 import createStore from './modules/_shared/utils/createStore'
 import { App } from './pages'
 import { rootReducer } from './redux'
@@ -35,7 +35,7 @@ if (root) {
   render(
     <React.Fragment>
       <Helmet>
-        <link rel='shortcut icon' href={icon} />
+        <link rel='shortcut icon' href={favicon} />
       </Helmet>
       <MediaProvider medias={medias}>
         <Provider store={store}>

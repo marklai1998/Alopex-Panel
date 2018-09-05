@@ -6,6 +6,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: './src/index.js',
   mode: 'production',
+  resolve: {
+    alias: {
+      assets: path.resolve(__dirname, 'src/assets/')
+    }
+  },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),

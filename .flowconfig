@@ -16,6 +16,7 @@ module.file_ext=.jsx
 module.file_ext=.css
 module.file_ext=.scss
 module.file_ext=.ico
+module.name_mapper='^assets' ->'<PROJECT_ROOT>/src/assets'
 
 [strict]
 deprecated-type
