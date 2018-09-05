@@ -8,22 +8,37 @@
 
 .loginBox {
   background: #fff;
-  width: 600px;
-  height: 200px;
-  display: flex;
-  flex-direction: row;
+  width: 300px;
   box-shadow: 0 0 15px #aaaaaa50;
+  padding: 20px;
 }
 
-.loginBox .title {
-  background-color: #027bce;
-  padding: 10px 20px;
+.title {
   font-size: 30px;
-  color: #fff;
-  width: 200px;
+  color: #027bce;
   text-align: center;
 }
 
-.loginBox .inputFields {
-  width: 400px;
+.logoWrapper {
+  padding: 33px 0 33px 0;
+}
+
+.logo {
+  margin: 0 auto;
+}
+
+.submit {
+  border: 0;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  color: #fff;
+  background-color: #027bce;
+  margin: 30px auto 20px;
+  display: block;
+  transition: all 0.3s;
+}
+
+.submit:hover {
+  background-color: #0270bc;
 }

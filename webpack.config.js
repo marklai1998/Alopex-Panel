@@ -8,7 +8,11 @@ module.exports = {
   mode: 'production',
   resolve: {
     alias: {
-      assets: path.resolve(__dirname, 'src/assets/')
+      assets: path.resolve(__dirname, 'src/assets/'),
+      inputFields: path.resolve(
+        __dirname,
+        'src/modules/_shared/components/inputFields'
+      )
     }
   },
   output: {
