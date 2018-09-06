@@ -3,6 +3,7 @@
 import classnames from 'classnames'
 import * as R from 'ramda'
 import React from 'react'
+import { Scrollbars } from 'react-custom-scrollbars'
 import { connect } from 'react-redux'
 import { connectScreenSize } from 'react-screen-size'
 
@@ -21,28 +22,30 @@ const Sider = (props: Props) => (
       [styles.mobile]: props.isMobile
     })}
   >
-    <ul
-      className={classnames(styles.nav, {
-        [styles.collapsed]: props.isSiderCollapsed
-      })}
-    >
-      <li>
-        <i className='fas fa-tachometer-alt' />
-        <span>Dashboard</span>
-      </li>
-      <li>
-        <i className='fas fa-user' />
-        <span>Players</span>
-      </li>
-      <li>
-        <i className='fas fa-map-marked-alt' />
-        <span>World</span>
-      </li>
-      <li>
-        <i className='fas fa-cogs' />
-        <span>Settings</span>
-      </li>
-    </ul>
+    <Scrollbars>
+      <ul
+        className={classnames(styles.nav, {
+          [styles.collapsed]: props.isSiderCollapsed
+        })}
+      >
+        <li>
+          <i className='fas fa-tachometer-alt' />
+          <span>Dashboard</span>
+        </li>
+        <li>
+          <i className='fas fa-user' />
+          <span>Players</span>
+        </li>
+        <li>
+          <i className='fas fa-map-marked-alt' />
+          <span>World</span>
+        </li>
+        <li>
+          <i className='fas fa-cogs' />
+          <span>Settings</span>
+        </li>
+      </ul>
+    </Scrollbars>
   </div>
 )
 
