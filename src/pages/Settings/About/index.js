@@ -4,7 +4,6 @@ import React from 'react'
 import Loadable from 'react-loadable'
 
 import { Loading } from '../../../modules/_shared/components/Loading'
-import { Scroll } from '../../_Layout/Scroll'
 
 const AboutComponent = Loadable({
   loader: () => import('../../../modules/settings/About'),
@@ -15,8 +14,4 @@ const AboutComponent = Loadable({
   loading: Loading
 })
 
-export const About = () => (
-  <Scroll>
-    <AboutComponent />
-  </Scroll>
-)
+export const About = () => <AboutComponent />

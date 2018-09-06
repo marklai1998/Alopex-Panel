@@ -36,15 +36,27 @@ const Sider = (props: Props) => (
           </Link>
         </li>
         <li>
-          <Link to='/user'>
+          <Link to='/users'>
             <i className='fas fa-user' />
             <span>Players</span>
           </Link>
         </li>
         <li>
-          <Link to='/world'>
+          <Link to='/worlds'>
             <i className='fas fa-map-marked-alt' />
-            <span>World</span>
+            <span>Worlds</span>
+          </Link>
+        </li>
+        <li>
+          <Link to='/plugins'>
+            <i className='fas fa-plug' />
+            <span>Plugins</span>
+          </Link>
+        </li>
+        <li>
+          <Link to='/backups'>
+            <i className='fas fa-file-archive' />
+            <span>Backups</span>
           </Link>
         </li>
         <li>

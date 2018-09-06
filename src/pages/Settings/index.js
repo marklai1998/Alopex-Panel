@@ -5,8 +5,14 @@ import { Route, Switch } from 'react-router-dom'
 
 import { About } from './About'
 
-export const Settings = () => (
+type Props = {
+  match: {
+    path: string
+  }
+}
+
+export const Settings = ({ match: { path } }: Props) => (
   <Switch>
-    <Route exact path={'/settings/about'} component={About} />
+    <Route exact path={`${path}/about`} component={About} />
   </Switch>
 )
