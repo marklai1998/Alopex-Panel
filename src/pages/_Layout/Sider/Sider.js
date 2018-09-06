@@ -5,6 +5,7 @@ import * as R from 'ramda'
 import React from 'react'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { connectScreenSize } from 'react-screen-size'
 
 import { isSiderCollapsedSelector } from '../../../redux/ui/selectors'
@@ -29,23 +30,43 @@ const Sider = (props: Props) => (
         })}
       >
         <li>
-          <i className='fas fa-tachometer-alt' />
-          <span>Dashboard</span>
+          <Link to='/dashboard'>
+            <i className='fas fa-tachometer-alt' />
+            <span>Dashboard</span>
+          </Link>
         </li>
         <li>
-          <i className='fas fa-user' />
-          <span>Players</span>
+          <Link to='/user'>
+            <i className='fas fa-user' />
+            <span>Players</span>
+          </Link>
         </li>
         <li>
-          <i className='fas fa-map-marked-alt' />
-          <span>World</span>
+          <Link to='/world'>
+            <i className='fas fa-map-marked-alt' />
+            <span>World</span>
+          </Link>
         </li>
         <li>
-          <i className='fas fa-cogs' />
-          <span>Settings</span>
+          <Link to='/config'>
+            <i className='fas fa-sliders-h' />
+            <span>Config</span>
+          </Link>
         </li>
       </ul>
     </Scrollbars>
+    <ul
+      className={classnames(styles.nav, styles.bottom, {
+        [styles.collapsed]: props.isSiderCollapsed
+      })}
+    >
+      <li>
+        <Link to='/settings'>
+          <i className='fas fa-cogs' />
+          <span>Settings</span>
+        </Link>
+      </li>
+    </ul>
   </div>
 )
 
