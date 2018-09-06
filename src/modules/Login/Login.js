@@ -1,9 +1,9 @@
 // @flow strict
 
-import { AlopexBg } from 'assets/AlopexBg'
 import { Text } from 'inputFields/Text'
 import React from 'react'
 
+import { AlopexBg } from '../_shared/components/AlopexBg'
 import { Logo } from '../_shared/components/Logo'
 import styles from './index.css'
 
