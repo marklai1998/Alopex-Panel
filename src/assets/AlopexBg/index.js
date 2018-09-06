@@ -12,7 +12,7 @@ type Props = {
   children: React.Node
 }
 
-export const Background = (props: Props) => (
+export const AlopexBg = (props: Props) => (
   <div className={styles.container}>
     <div className={styles.content}>{props.children}</div>
     <SnowStorm

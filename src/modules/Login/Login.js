@@ -1,14 +1,14 @@
 // @flow strict
 
+import { AlopexBg } from 'assets/AlopexBg'
 import { Text } from 'inputFields/Text'
 import React from 'react'
 
 import { Logo } from '../_shared/components/Logo'
-import { Background } from './Background'
 import styles from './index.css'
 
 const Login = () => (
-  <Background>
+  <AlopexBg>
     <div className={styles.container}>
       <div className={styles.loginBox}>
         <div className={styles.logoWrapper}>
@@ -24,7 +24,7 @@ const Login = () => (
         </div>
       </div>
     </div>
-  </Background>
+  </AlopexBg>
 )
 
 export default Login
