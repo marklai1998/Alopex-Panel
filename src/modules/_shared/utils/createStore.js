@@ -23,7 +23,9 @@ export const createStore = ({
   const sagaMiddleware = createSagaMiddleware()
 
   const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+    typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      : compose
 
   const store = reduxCreateStore(
     rootReducer,

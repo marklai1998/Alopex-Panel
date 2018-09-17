@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import * as R from 'ramda'
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { connectScreenSize } from 'react-screen-size'
+import withSizes from 'react-sizes'
 
 import { uiCreators } from '../../../redux'
 import {
@@ -18,10 +18,20 @@ type Props = {
   isConsoleCollapsed: boolean,
   isMobile: boolean,
   setSiderCollapsed: boolean => void,
-  setConsoleCollapsed: boolean => void
+  setConsoleCollapsed: boolean => void,
+  title: string
 }
 
 class SubHeader extends PureComponent<Props> {
+  componentDidUpdate (prevProps) {
+    if (prevProps.isMobile === false && this.props.isMobile) {
+      this.setConsoleCollapsed(true)
+    }
+    if (prevProps.isMobile && this.props.isMobile === false) {
+      this.setConsoleCollapsed(false)
+    }
+  }
+
   setSiderCollapse = (collapse: boolean) => {
     if (this.props.isMobile && !collapse) this.props.setConsoleCollapsed(true)
     this.props.setSiderCollapsed(collapse)
@@ -53,7 +63,7 @@ class SubHeader extends PureComponent<Props> {
           <i className='fas fa-angle-double-left' />
         </button>
         <div className={styles.shadow}>
-          <div className={styles.title}>Dashboard</div>
+          <div className={styles.title}>{this.props.title}</div>
           <button
             type='button'
             className={styles.toggleConsoleButton}
@@ -77,8 +87,8 @@ const mapDispatchToProps = {
   setConsoleCollapsed: uiCreators.setConsoleCollapsed
 }
 
-const mapScreenSizeToProps = ({ xs }) => ({
-  isMobile: xs
+const mapSizesToProps = ({ width }) => ({
+  isMobile: width < 768
 })
 
 export default R.compose(
@@ -86,5 +96,5 @@ export default R.compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  connectScreenSize(mapScreenSizeToProps)
+  withSizes(mapSizesToProps)
 )(SubHeader)

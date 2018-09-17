@@ -1,9 +1,9 @@
 // @flow strict
 
 import logo from 'assets/logo.svg'
-import classNames from 'classnames'
 import React from 'react'
 
+import { HexBg } from '../HexBg'
 import styles from './index.css'
 
 type Props = {
@@ -11,8 +11,7 @@ type Props = {
 }
 
 export const Logo = (props: Props) => (
-  <div className={classNames(styles.logo, props.className)}>
-    <img src={logo} />
-    <div className={styles.logoBG} />
-  </div>
+  <HexBg className={props.className}>
+    <img src={logo} className={styles.logo} />
+  </HexBg>
 )

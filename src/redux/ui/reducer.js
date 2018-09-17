@@ -9,7 +9,7 @@ import { uiCreators, uiTypes } from './actions'
 
 type StateProps = {
   sider: RecordOf<{ isCollapsed: boolean }>,
-  console: RecordOf<{ isCollapsed: boolean }>,
+  console: RecordOf<{ isCollapsed: boolean }>
 }
 export const INITIAL_STATE: RecordOf<StateProps> = Record({
   sider: Record({
@@ -27,7 +27,7 @@ export const setSiderCollapsed = (
 
 export const setConsoleCollapsed = (
   state: typeof INITIAL_STATE,
-  { payload }: ActionType<typeof uiCreators.setSiderCollapsed>
+  { payload }: ActionType<typeof uiCreators.setConsoleCollapsed>
 ) => state.setIn(['console', 'isCollapsed'], payload)
 
 export const uiReducer = handleActions(
