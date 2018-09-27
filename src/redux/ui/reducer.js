@@ -16,7 +16,7 @@ export const INITIAL_STATE: RecordOf<StateProps> = Record({
     isCollapsed: true
   })(),
   console: Record({
-    isCollapsed: false
+    isCollapsed: true
   })()
 })()
 

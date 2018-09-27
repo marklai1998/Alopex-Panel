@@ -1,17 +1,20 @@
 // @flow strict
 
-import classnames from 'classnames'
 import * as R from 'ramda'
-import React, { PureComponent } from 'react'
+import * as React from 'react'
 import { connect } from 'react-redux'
 import withSizes from 'react-sizes'
 
-import { uiCreators } from '../../../redux'
+import { Console } from '../../modules/_shared/components/Console'
+import { uiCreators } from '../../redux'
 import {
   isConsoleCollapsedSelector,
   isSiderCollapsedSelector
-} from '../../../redux/ui/selectors'
+} from '../../redux/ui/selectors'
+import { Header } from './Header'
 import styles from './index.css'
+import { Sider } from './Sider'
+import { SubHeader } from './SubHeader'
 
 type Props = {
   isSiderCollapsed: boolean,
@@ -19,16 +22,14 @@ type Props = {
   isMobile: boolean,
   setSiderCollapsed: boolean => void,
   setConsoleCollapsed: boolean => void,
+  children: React.Node,
   title: string
 }
 
-class SubHeader extends PureComponent<Props> {
+class Layout extends React.PureComponent<Props> {
   componentDidUpdate (prevProps) {
     if (prevProps.isMobile === false && this.props.isMobile) {
       this.setConsoleCollapsed(true)
-    }
-    if (prevProps.isMobile && this.props.isMobile === false) {
-      this.setConsoleCollapsed(false)
     }
   }
 
@@ -52,25 +53,18 @@ class SubHeader extends PureComponent<Props> {
 
   render () {
     return (
-      <div className={styles.subHeader}>
-        <button
-          type='button'
-          className={classnames(styles.toggleNavButton, {
-            [styles.collapsed]: this.props.isSiderCollapsed
-          })}
-          onClick={this.toggleSiderCollapse}
-        >
-          <i className='fas fa-angle-double-left' />
-        </button>
-        <div className={styles.shadow}>
-          <div className={styles.title}>{this.props.title}</div>
-          <button
-            type='button'
-            className={styles.toggleConsoleButton}
-            onClick={this.toggleConsoleCollapse}
-          >
-            <i className='fas fa-terminal' />
-          </button>
+      <div className={styles.mainFrame}>
+        <Header />
+        <SubHeader
+          title={this.props.title}
+          isSiderCollapsed={this.props.isSiderCollapsed}
+          toggleSiderCollapse={this.toggleSiderCollapse}
+          toggleConsoleCollapse={this.toggleConsoleCollapse}
+        />
+        <div className={styles.row}>
+          <Sider />
+          {this.props.children}
+          <Console />
         </div>
       </div>
     )
@@ -97,4 +91,4 @@ export default R.compose(
     mapDispatchToProps
   ),
   withSizes(mapSizesToProps)
-)(SubHeader)
+)(Layout)

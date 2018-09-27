@@ -3,7 +3,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { Layout } from './_Layout'
+import { Layout } from '../modules/_Layout'
 import { Dashboard } from './Dashboard'
 import { ErrorPage } from './Error'
 import { Login } from './Login'
@@ -18,8 +18,8 @@ export const App = () => (
         <Route exact path='/' component={Dashboard} />
         <Route exact path='/players' component={Players} />
         <Route path='/settings' component={Settings} />
+        <Route component={ErrorPage} />
       </Switch>
     </Layout>
-    <Route component={ErrorPage} />
   </Switch>
 )

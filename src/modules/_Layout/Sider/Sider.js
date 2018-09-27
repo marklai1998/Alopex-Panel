@@ -26,42 +26,42 @@ const Sider = (props: Props) => (
           [styles.collapsed]: props.isSiderCollapsed
         })}
       >
-        <li>
-          <Link to='/'>
+        <Link to='/'>
+          <li>
             <i className='fas fa-tachometer-alt' />
             <span>Dashboard</span>
-          </Link>
-        </li>
-        <li>
-          <Link to='/players'>
+          </li>
+        </Link>
+        <Link to='/players'>
+          <li>
             <i className='fas fa-user' />
             <span>Players</span>
-          </Link>
-        </li>
-        <li>
-          <Link to='/worlds'>
+          </li>
+        </Link>
+        <Link to='/worlds'>
+          <li>
             <i className='fas fa-map-marked-alt' />
             <span>Worlds</span>
-          </Link>
-        </li>
-        <li>
-          <Link to='/plugins'>
+          </li>
+        </Link>
+        <Link to='/plugins'>
+          <li>
             <i className='fas fa-plug' />
             <span>Plugins</span>
-          </Link>
-        </li>
-        <li>
-          <Link to='/backups'>
+          </li>
+        </Link>
+        <Link to='/backups'>
+          <li>
             <i className='fas fa-file-archive' />
             <span>Backups</span>
-          </Link>
-        </li>
-        <li>
-          <Link to='/config'>
+          </li>
+        </Link>
+        <Link to='/config'>
+          <li>
             <i className='fas fa-sliders-h' />
             <span>Config</span>
-          </Link>
-        </li>
+          </li>
+        </Link>
       </ul>
     </Scrollbars>
     <ul

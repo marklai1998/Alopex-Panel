@@ -10,11 +10,16 @@ import { HexBg } from '../_shared/components/HexBg'
 import { defaultError, errorMap } from './errorMap'
 import styles from './index.css'
 
-export const ErrorComponent = ({ statusCode }: { statusCode: number }) => {
+export const ErrorComponent = ({
+  statusCode = 404
+}: {
+  statusCode: number
+}) => {
   const matchCode = R.defaultTo(
     defaultError,
     R.find(R.propEq('code', statusCode))(errorMap)
   )
+
   return (
     <AlopexBg>
       <CenterBox>

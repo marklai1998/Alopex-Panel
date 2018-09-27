@@ -7,9 +7,8 @@ import { Loading } from '../../../modules/_shared/components/Loading'
 
 const AboutComponent = Loadable({
   loader: () => import('../../../modules/settings/About'),
-  render (loaded, props) {
-    const Component = loaded.About
-    return <Component {...props} />
+  render (Loaded, props) {
+    return <Loaded.About {...props} />
   },
   loading: Loading
 })

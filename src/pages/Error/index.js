@@ -7,9 +7,8 @@ import { Loading } from '../../modules/_shared/components/Loading'
 
 const ErrorComponent = Loadable({
   loader: () => import('../../modules/Error'),
-  render (loaded, props) {
-    const Component = loaded.ErrorComponent
-    return <Component {...props} />
+  render (Loaded, props) {
+    return <Loaded.ErrorComponent {...props} />
   },
   loading: Loading
 })
